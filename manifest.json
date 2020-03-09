@@ -4,7 +4,8 @@
     "theme_color": "#0b0b0b",
     "background_color": "#2196f3",
     "display": "standalone",
-    "Scope": "/",
+    "dir": "ltr",
+    "lang": "en",
     "start_url": "index.html",
     "icons": [{
             "src": "images/icons/icon-72x72.png",
