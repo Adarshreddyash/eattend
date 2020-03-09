@@ -1,0 +1,5 @@
+<div id="d1">
+    <transition-group name="scans" tag="ul">
+        <p id="txtName" v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}</p>
+    </transition-group>
+</div>

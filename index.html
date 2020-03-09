@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title>Kits Singapuram</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="sidebar">
+            <section class="cameras">
+                <h2>Cameras</h2>
+                <ul>
+                    <li v-if="cameras.length === 0" class="empty">No cameras found</li>
+                    <li v-for="camera in cameras">
+                        <span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active">{{ formatName(camera.name) }}</span>
+                        <span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
+                <a @click.stop="selectCamera(camera)">{{ formatName(camera.name) }}</a>
+              </span>
+                    </li>
+                </ul>
+            </section>
+            <section class="scans">
+                <h2>Attendance</h2>
+                <ul v-if="scans.length === 0">
+                    <li class="empty">No scans yet</li>
+                </ul>
+                <div id="d1">
+                    <transition-group name="scans" tag="ul">
+                        <p id="txtName" v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}</p>
+                    </transition-group>
+                </div>
+                <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
+            </section>
+        </div>
+        <div class="preview-container">
+            <video id="preview"></video>
+        </div>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            console.log("Will the service worker register?");
+            navigator.serviceWorker.register('service-worker.js')
+                .then(function(reg) {
+                    console.log("Yes, it did.");
+                }).catch(function(err) {
+                    console.log("No it didn't. This happened: ", err)
+                });
+        }
+    </script>
+    <script>
+        let saveFile = () => {
+
+            var name = document.getElementById('d1').innerText;
+
+            alert(name);
+
+            let a = document.createElement('a');
+            a.href = "data:application/octet-stream," + encodeURIComponent(name);
+            a.download = 'abc.txt';
+            a.click();
+        }
+    </script>
+</body>
+
+</html>
