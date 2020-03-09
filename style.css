@@ -7,15 +7,22 @@ html {
 }
 
 #app {
-    background: #263238;
+    background: #000000;
     display: flex;
     align-items: stretch;
     justify-content: stretch;
     height: 100%;
 }
 
+@media (min-width: 481px) and (max-width: 767px) {
+    #app {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
 .sidebar {
-    background: #eceff1;
+    background: #ffffff;
     min-width: 250px;
     display: flex;
     flex-direction: column;
@@ -26,7 +33,7 @@ html {
 .sidebar h2 {
     font-weight: normal;
     font-size: 1.0rem;
-    background: #607d8b;
+    background: #0f0f0f;
     color: #fff;
     padding: 10px;
     margin: 0;
@@ -52,7 +59,7 @@ html {
 
 .cameras .active {
     font-weight: bold;
-    color: #009900;
+    color: #0d0462;
 }
 
 .cameras a {
@@ -75,7 +82,7 @@ html {
 }
 
 .scans-enter {
-    background: yellow;
+    background: rgb(255, 81, 0);
 }
 
 .empty {
