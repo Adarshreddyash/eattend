@@ -14,8 +14,141 @@ html {
     height: 100%;
 }
 
+.header {
+    background-color: #fff;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.header li a {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px solid #f4f4f4;
+    text-decoration: none;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+    background-color: #f4f4f4;
+}
+
+.header .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+
+/* menu */
+
+.header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+
+
+/* menu icon */
+
+.header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+}
+
+.header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+    top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+    top: -5px;
+}
+
+
+/* menu btn */
+
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked~.menu {
+    max-height: 240px;
+}
+
+.header .menu-btn:checked~.menu-icon .navicon {
+    background: transparent;
+}
+
+.header .menu-btn:checked~.menu-icon .navicon:before {
+    transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked~.menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+    top: 0;
+}
+
+
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+    .header li {
+        float: left;
+    }
+    .header li a {
+        padding: 20px 3px;
+    }
+    .header .menu {
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+    .header .menu-icon {
+        display: none;
+    }
+}
+
 .sidebar {
-    background: #eceff1;
+    background: #fff;
     min-width: 250px;
     display: flex;
     flex-direction: column;
@@ -26,7 +159,7 @@ html {
 .sidebar h2 {
     font-weight: normal;
     font-size: 1.0rem;
-    background: #607d8b;
+    background: #060707;
     color: #fff;
     padding: 10px;
     margin: 0;
@@ -46,13 +179,53 @@ html {
     text-overflow: ellipsis;
 }
 
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+    #app {
+        background: #ffffff;
+        justify-content: stretch;
+        flex-direction: column-reverse;
+        height: 100%;
+    }
+    .sidebar {
+        background: #fff;
+        min-width: 250px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-x: hidden;
+    }
+    .sidebar h2 {
+        font-weight: normal;
+        font-size: 1.0rem;
+        background: #232525;
+        color: #fff;
+        padding: 10px;
+        margin-top: 30px;
+    }
+    .sidebar ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    .sidebar li {
+        line-height: 175%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-wrap: none;
+        text-overflow: ellipsis;
+    }
+}
+
 .cameras ul {
-    padding: 15px 20px;
+    padding: 45px 20px;
 }
 
 .cameras .active {
     font-weight: bold;
-    color: #009900;
+    color: #420e7e;
 }
 
 .cameras a {
@@ -67,7 +240,7 @@ html {
 
 .scans li {
     padding: 10px 20px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgb(34, 31, 31);
 }
 
 .scans-enter-active {
@@ -75,7 +248,8 @@ html {
 }
 
 .scans-enter {
-    background: yellow;
+    background: rgb(255, 0, 43);
+    color: whitesmoke;
 }
 
 .empty {
@@ -88,5 +262,6 @@ html {
     justify-content: center;
     display: flex;
     width: 100%;
-    overflow: hidden;
 }
+
+#preview {}

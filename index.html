@@ -11,9 +11,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
     <link rel='manifest' href='manifest.json'>
     <script src="service-worker.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
+    <header class="header">
+        <a href="" class="logo">kits attendance</a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li>
+                <a href="#work"></a>
+            </li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
     <div id="app">
         <div class="sidebar">
             <section class="cameras">
@@ -35,7 +49,7 @@
                 </ul>
                 <div id="d1">
                     <transition-group name="scans" tag="ul">
-                        <p id="txtName" v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}</p>
+                        <p style="text-overflow: clip;" id="txtName" v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}</p>
                     </transition-group>
                 </div>
                 <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
@@ -66,7 +80,7 @@
 
             let a = document.createElement('a');
             a.href = "data:application/octet-stream," + encodeURIComponent(name);
-            a.download = 'abc.txt';
+            a.download = 'attendance.txt';
             a.click();
         }
     </script>
