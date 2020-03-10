@@ -36,6 +36,7 @@
                     <li class="empty">No scans yet</li>
                 </ul>
                 <div id="d1">
+<p id="para1"></p>
                     <transition-group name="scans" tag="ul">
                         <p style="text-overflow: clip;" id="txtName" v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}</p>
                     </transition-group>
@@ -63,6 +64,17 @@
         let saveFile = () => {
 
             var name = document.getElementById('d1').innerText;
+         document.getElementById("para1").innerHTML = datedisp();
+ 
+        function datedisp() {
+           var d = new Date(),
+    minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+    hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+    ampm = d.getHours() >= 12 ? 'pm' : 'am',
+    months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm;
+}
 
             alert(name);
 
