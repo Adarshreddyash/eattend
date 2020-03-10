@@ -96,3 +96,11 @@ html {
     width: 100%;
     overflow: hidden;
 }
+
+.icon {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    margin-right: 7px;
+    cursor: pointer;
+}

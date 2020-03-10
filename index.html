@@ -15,11 +15,13 @@
 </head>
 
 <body>
-    <h3 style="margin: 5px">attendance</h3>
+    <h3 style="margin: 5px"><img src="/images/icons/icon-72x72.png" alt="Kits logo" height="42" width="42"></h3>
     <div id="app">
         <div class="sidebar">
             <section class="cameras">
-                <h2>Cameras</h2>
+                <h2><i class="material-icons icon">
+                    photo_camera
+                    </i>Cameras</h2>
                 <ul>
                     <li v-if="cameras.length === 0" class="empty">No cameras found</li>
                     <li v-for="camera in cameras">
@@ -31,7 +33,10 @@
                 </ul>
             </section>
             <section class="scans">
-                <h2>Attendance</h2>
+                <h2>Attendance<i class="material-icons icon">
+                    save_alt
+                    </i>
+                </h2>
                 <ul v-if="scans.length === 0">
                     <li class="empty">No scans yet</li>
                 </ul>
@@ -44,7 +49,7 @@
                 </div>
                 <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
             </section>
-            <h3>Project by A.Adarsh(17281A0525) under guidance of N.Raghu</h3>
+            <h6>Project by A.Adarsh(17281A0525) under guidance of N.Raghu.</h6>
         </div>
         <div class="preview-container">
             <video id="preview"></video>
@@ -72,7 +77,6 @@
     </script>
     <script>
         let saveFile = () => {
-
             var name = document.getElementById('d1').innerText;
 
             alert(name);
