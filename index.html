@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <h3 style="margin: 5px"><img src="/images/icons/icon-72x72.png" alt="Kits logo" height="42" width="42"></h3>
+    <h3 style="margin: 5px"><img src="/images/icons/icon-512x512.png" alt="Kits logo" height="42" width="42"></h3>
     <div id="app">
         <div class="sidebar">
             <section class="cameras">
@@ -47,7 +47,6 @@
                         <p style="text-overflow: clip;" id="txtName" v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}</p>
                     </transition-group>
                 </div>
-                <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
             </section>
             <h6>Project by A.Adarsh(17281A0525) under guidance of N.Raghu.</h6>
         </div>
