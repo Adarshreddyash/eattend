@@ -11,7 +11,7 @@ var app = new Vue({
         self.scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5 });
         self.scanner.addListener('scan', function(content, image) {
             self.scans.unshift({ date: +(Date.now()), content: content });
-            var audio = new Audio('/sounds/beep-01a.mp3');
+            var audio = new Audio('beep-01a.mp3');
             audio.play();
         });
         Instascan.Camera.getCameras().then(function(cameras) {

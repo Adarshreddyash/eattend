@@ -36,19 +36,29 @@
                     <li class="empty">No scans yet</li>
                 </ul>
                 <div id="d1">
-<p id="para1"></p>
+                    <p>Date:<span id="ashdate"></span></p>
+                    <p>Time:<span id="ashtime"></span></p>
                     <transition-group name="scans" tag="ul">
                         <p style="text-overflow: clip;" id="txtName" v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}</p>
                     </transition-group>
                 </div>
                 <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
             </section>
+            <h3>Project by A.Adarsh(17281A0525) under guidance of N.Raghu</h3>
         </div>
         <div class="preview-container">
             <video id="preview"></video>
         </div>
     </div>
     <script type="text/javascript" src="app.js"></script>
+    <script>
+        var dt = new Date();
+        document.getElementById("ashdate").innerHTML = dt.toLocaleDateString();
+    </script>
+    <script>
+        var dt = new Date();
+        document.getElementById("ashtime").innerHTML = dt.toLocaleTimeString();
+    </script>
     <script>
         if ('serviceWorker' in navigator) {
             console.log("Will the service worker register?");
@@ -64,17 +74,6 @@
         let saveFile = () => {
 
             var name = document.getElementById('d1').innerText;
-         document.getElementById("para1").innerHTML = datedisp();
- 
-        function datedisp() {
-           var d = new Date(),
-    minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
-    hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
-    ampm = d.getHours() >= 12 ? 'pm' : 'am',
-    months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-    days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm;
-}
 
             alert(name);
 
