@@ -15,7 +15,10 @@
 </head>
 
 <body>
-    <h3 style="margin: 5px"><img src="/images/icons/icon-512x512.png" alt="Kits logo" height="42" width="42"></h3>
+    <h3 style="margin: 5px;position: relative;
+    top: 5px;
+    left: 5px;
+    margin-right: 7px;"><img src="/img/kits.jpg" alt="Kits logo" height="42" width="42"></h3>
     <div id="app">
         <div class="sidebar">
             <section class="cameras">
@@ -33,7 +36,7 @@
                 </ul>
             </section>
             <section class="scans">
-                <h2>Attendance<i class="material-icons icon">
+                <h2>Attendance<i class="material-icons icon" type="button" id="bt" value="Save data to file" onclick="saveFile()">
                     save_alt
                     </i>
                 </h2>
