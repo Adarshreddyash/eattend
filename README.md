@@ -5,9 +5,7 @@
 
 > This project is developed to ease the taking of attendance in our campus.
 
-> Guide : N. Raghu
-
-**Badges will go here**
+**stack**
 
 - Vuejs
 - instascan
